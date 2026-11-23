@@ -1283,54 +1283,139 @@
       .music-grid { grid-template-columns: 1fr; }
     }
 
-    /* Contact Section */
+    /* Contact Section — 2 kolom */
     .contact-grid {
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 3rem;
+      grid-template-columns: 1fr 1.7fr;
+      gap: 2rem;
+      align-items: start;
     }
 
-    .contact-info-item {
+    .contact-card-main,
+    .contact-card-comment {
+      width: 100%;
+      padding: 2rem 1.5rem;
+    }
+
+    .contact-heading {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      color: #3b82f6;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-sub {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    /* Find Me di dalam Kontak */
+    .contact-findme {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-findme-list {
       display: flex;
-      align-items: flex-start;
-      gap: 1.2rem;
-      margin-bottom: 2rem;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
     }
 
-    .contact-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 10px;
-      background: rgba(0, 240, 255, 0.1);
-      border: 1px solid rgba(0, 240, 255, 0.2);
+    .contact-findme-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+
+    .contact-findme-item:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-findme-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .contact-findme-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--cyan);
-      font-size: 1.2rem;
+      flex-shrink: 0;
     }
 
-    .contact-label {
+    .contact-findme-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .contact-findme-icon.instagram { background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .contact-findme-icon.github { background: #24292f; }
+    .contact-findme-icon.tiktok { background: linear-gradient(45deg, #fe2c55 0%, #2250d1 100%); }
+
+    .contact-findme-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .contact-findme-platform {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      display: block;
+    }
+
+    .contact-findme-username {
+      font-family: var(--font-mono);
       font-size: 0.8rem;
       color: var(--text-muted);
-      text-transform: uppercase;
-      font-family: var(--font-mono);
-      margin-bottom: 0.2rem;
+      display: block;
+      margin-top: 2px;
     }
 
-    .contact-val {
-      font-weight: 600;
-      color: #fff;
-      text-decoration: none;
+    .contact-findme-external {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      opacity: 0.5;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
-    .contact-val:hover {
-      color: var(--cyan);
+    /* Foto portrait (tinggi lebih besar dari lebar) */
+    .contact-findme-photo {
+      width: 100%;
+      height: 320px;
+      border-radius: 14px;
+      object-fit: cover;
+      object-position: center;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: #0b0f2a;
+      display: block;
+      margin-top: 1rem;
     }
 
     /* Form */
     .form-group {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
     }
 
     .form-group label {
@@ -1343,10 +1428,10 @@
 
     .form-control {
       width: 100%;
-      padding: 0.8rem 1rem;
+      padding: 0.9rem 1rem 0.9rem 2.8rem;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 8px;
+      border-radius: 10px;
       color: #fff;
       font-family: var(--font-body);
       font-size: 0.95rem;
@@ -1361,23 +1446,90 @@
 
     textarea.form-control {
       resize: vertical;
-      min-height: 120px;
+      min-height: 130px;
     }
 
+    .input-icon {
+      position: relative;
+    }
 
-    /* Contact layout (Hubungi + Komentar) */
-    .contact-grid { grid-template-columns: 1fr 1.7fr; align-items: start; gap: 2rem; }
-    .contact-heading { font-family: var(--font-heading); font-size: 2rem; color: #3b82f6; margin-bottom: .4rem; }
-    .contact-sub { color: var(--text-muted); font-size: .95rem; margin-bottom: 1.5rem; line-height: 1.6; }
-    .input-icon { position: relative; }
-    .input-icon svg { position: absolute; left: 14px; top: 15px; width: 18px; height: 18px; fill: none; stroke: var(--text-muted); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
-    .input-icon .form-control { padding-left: 2.8rem; }
-    .btn-full { width: 100%; justify-content: center; margin-top: .5rem; gap: .6rem; }
-    .btn-ico { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-    .comment-head { display: flex; align-items: center; gap: .9rem; padding-bottom: 1.2rem; margin-bottom: 1.4rem; border-bottom: 1px solid rgba(255,255,255,.1); }
-    .comment-head h3 { font-family: var(--font-heading); font-size: 1.4rem; color: #fff; }
-    .comment-head h3 span { color: var(--text-muted); font-weight: 400; }
-    .comment-head-ico { width: 42px; height: 42px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); display: flex; align-items: center; justify-content: center; }
+    .input-icon svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: var(--text-muted);
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+    }
+
+    .btn-full {
+      width: 100%;
+      justify-content: center;
+      margin-top: 0.5rem;
+      gap: 0.6rem;
+      padding: 0.9rem 1rem;
+      border-radius: 10px;
+    }
+
+    .contact-btn-send {
+      background: linear-gradient(135deg, #00f0ff, #7c3aed);
+      color: #050510;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(0, 240, 255, 0.35);
+      border: none;
+    }
+
+    .contact-btn-send:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 240, 255, 0.55);
+    }
+
+    .btn-ico {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .comment-head {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .comment-head h3 {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    .comment-head h3 span {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .comment-head-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .comment-head-ico svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     #commentForm .form-group label:not(.upload-box) { font-family: var(--font-body); font-weight: 600; color: #fff; }
     .upload-box { display: flex !important; align-items: center; justify-content: center; gap: .6rem; padding: 1.1rem; border: 1px dashed rgba(255,255,255,.25); border-radius: 8px; background: rgba(255,255,255,.03); color: #fff !important; font-size: .9rem; font-weight: 600; cursor: pointer; transition: border-color .25s, background .25s; margin-bottom: .6rem !important; }
@@ -1664,6 +1816,8 @@
       .about-extra-grid { grid-template-columns: 1fr; gap: 2rem; }
       .about-stats { grid-template-columns: 1fr; }
     }
+
+
   </style>
 </head>
 <body>
@@ -1802,6 +1956,7 @@
         </div>
       </section>
 
+
       <!-- About Section -->
       <section id="about" class="about-showcase">
         <span class="shooting-star" style="top:8%; left:62%; animation-delay:0s;"></span>
@@ -1896,7 +2051,7 @@
                   <span class="about-stat-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
                   </span>
-                  <span class="about-stat-num" data-count="1">0</span>
+                  <span class="about-stat-num" data-count="2">0</span>
                 </div>
                 <strong>PROJECTS</strong>
                 <span>Karya yang dibuat</span>
@@ -1979,6 +2134,21 @@
             <!-- Panel: Proyek -->
             <div class="pf-panel active" id="tab-projects">
           <div class="projects-grid">
+            <!-- Project: Chatbot AI -->
+            <div class="glass-card project-card">
+              <div class="project-header">
+                <span class="project-badge">AI & CHATBOT</span>
+                <img class="project-shot" src="chatbot ai.png" alt="Tampilan Chatbot AI" />
+                <h3 class="project-title">Chatbot AI</h3>
+                <p class="project-desc">
+                  Chatbot cerdas berbasis AI yang dirancang untuk menjawab pertanyaan pengguna secara otomatis, menyediakan informasi, dan membantu interaksi melalui antarmuka percakapan yang intuitif dan responsif.
+                </p>
+              </div>
+              <button type="button" class="project-details" onclick="openProjectDetail('Chatbot AI', 'Chatbot cerdas berbasis AI yang dirancang untuk menjawab pertanyaan pengguna secara otomatis, menyediakan informasi, dan membantu interaksi melalui antarmuka percakapan yang intuitif dan responsif. Dibangun dengan teknologi modern untuk memahami konteks dan memberikan jawaban yang relevan.', 'chatbot ai.png', ['HTML', 'CSS', 'JavaScript', 'AI', 'VSCode'])">
+                <span>Details</span> <span>→</span>
+              </button>
+            </div>
+
             <!-- Project: Website Kelas -->
             <div class="glass-card project-card">
               <div class="project-header">
@@ -2057,10 +2227,45 @@
           </div>
 
           <div class="contact-grid">
-            <!-- Kartu Hubungi -->
-            <div class="glass-card contact-card">
+            <!-- Kartu Hubungi + Find Me -->
+            <div class="glass-card contact-card contact-card-main">
               <h3 class="contact-heading">Hubungi</h3>
               <p class="contact-sub">Ada yang mau didiskusikan? Langsung kirim pesan aja ya...</p>
+
+              <!-- Find Me: media sosial -->
+              <div class="contact-findme">
+                <div class="contact-findme-list">
+
+                  <a href="https://www.instagram.com/_hanzz56" target="_blank" rel="noopener noreferrer" class="contact-findme-item" aria-label="Instagram">
+                    <span class="contact-findme-icon instagram" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 5.816 2.648 5.816 5.916 0 3.253-2.611 5.912-5.816 5.912-3.203 0-5.815-2.659-5.815-5.912 0-3.268 2.612-5.916 5.815-5.916zm0 1.466c-2.425 0-4.402 1.979-4.402 4.45 0 2.457 1.977 4.452 4.402 4.452 2.423 0 4.401-1.995 4.401-4.452 0-2.471-1.978-4.45-4.401-4.45zm0 1.634c-.269 0-.491.221-.491.494 0 .273.222.495.491.495.271 0 .493-.222.493-.495 0-.272-.222-.494-.493-.494zm5.841 4.451c0 .27-.22.491-.492.491h-.01c-.274 0-.497-.221-.497-.491v-.01c0-.274.223-.492.497-.492h.01c.272 0 .492.218.492.492zm-3.195-4.45c0-.276-.214-.397-.479-.397h-.01c-.262 0-.478.121-.478.397v.01c0 .273.215.395.478.395h.01c.266 0 .479-.122.479-.395zm-5.84 1.986c0-.275-.22-.496-.492-.496h-.01c-.274 0-.498.221-.498.496v.01c0 .272.224.492.498.492h.01c.272 0 .492-.22.492-.492zm3.195 4.45c0 .275-.214.397-.479.397h-.01c-.262 0-.478-.12-.478-.397v-.01c0-.273.215-.395.478-.395h.01c.265 0 .479.122.479.395z"/></svg></span>
+                    <div class="contact-findme-info">
+                      <span class="contact-findme-platform">Instagram</span>
+                      <span class="contact-findme-username">@eKa.wahyu.m</span>
+                    </div>
+                    <svg class="contact-findme-external" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.55 2.55L15 8.1l-2.55-2.55L15 3zM3.53 4.46l2.55-2.55L6.08 2l-2.55 2.55zM10.53 8.46l2.55-2.55L13.08 6l-2.55 2.55zM6.93 12.54l2.55-2.55L9.48 10l-2.55 2.55zM21 3l-2.55 2.55L18 8.1l2.55 2.55L21 3z"/></svg>
+                  </a>
+
+                  <a href="https://github.com/farhan122237" target="_blank" rel="noopener noreferrer" class="contact-findme-item" aria-label="GitHub">
+                    <span class="contact-findme-icon github" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+                    <div class="contact-findme-info">
+                      <span class="contact-findme-platform">GitHub</span>
+                      <span class="contact-findme-username">@farhan122237</span>
+                    </div>
+                    <svg class="contact-findme-external" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.55 2.55L15 8.1l-2.55-2.55L15 3zM3.53 4.46l2.55-2.55L6.08 2l-2.55 2.55zM10.53 8.46l2.55-2.55L13.08 6l-2.55 2.55zM6.93 12.54l2.55-2.55L9.48 10l-2.55 2.55zM21 3l-2.55 2.55L18 8.1l2.55 2.55L21 3z"/></svg>
+                  </a>
+
+                  <a href="https://www.tiktok.com/@hanzazza7" target="_blank" rel="noopener noreferrer" class="contact-findme-item" aria-label="TikTok">
+                    <span class="contact-findme-icon tiktok" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.31 5.82A4.28 4.28 0 0 1 18.24 3h-3.09v12.4a2.59 2.59 0 1 1-2.59-2.59c.27 0 .53.04.77.12V9.77a5.76 5.76 0 0 0-.77-.05A5.94 5.94 0 1 0 15.8 15.66V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3c-1.35 0-2.6-.54-3.5-1.48Z"/></svg></span>
+                    <div class="contact-findme-info">
+                      <span class="contact-findme-platform">TikTok</span>
+                      <span class="contact-findme-username">@hanzazza7</span>
+                    </div>
+                    <svg class="contact-findme-external" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3l2.55 2.55L15 8.1l-2.55-2.55L15 3zM3.53 4.46l2.55-2.55L6.08 2l-2.55 2.55zM10.53 8.46l2.55-2.55L13.08 6l-2.55 2.55zM6.93 12.54l2.55-2.55L9.48 10l-2.55 2.55zM21 3l-2.55 2.55L18 8.1l2.55 2.55L21 3z"/></svg>
+                  </a>
+                </div>
+
+                <img class="contact-findme-photo" src="pp.jpeg" alt="Foto profil" onerror="this.style.display='none'" />
+              </div>
 
               <form id="contactForm" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah terkirim.'); this.reset();">
                 <div class="form-group">
@@ -2084,7 +2289,7 @@
                     <textarea id="message" class="form-control" placeholder="Pesan Anda" required></textarea>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-full">
+                <button type="submit" class="btn btn-primary btn-full contact-btn-send">
                   <svg class="btn-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
                   <span>Kirim Pesan</span>
                 </button>
@@ -2092,7 +2297,7 @@
             </div>
 
             <!-- Kartu Komentar -->
-            <div class="glass-card contact-card">
+            <div class="glass-card contact-card contact-card-comment">
               <div class="comment-head">
                 <div class="comment-head-ico">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -2757,8 +2962,8 @@
         ['#portfolio .pf-tabs', 120, 'up'],
         // Contact
         ['#contact .section-header', 0, 'up'],
-        ['#contact .contact-grid > .glass-card:nth-child(1)', 140, 'left'],
-        ['#contact .contact-grid > .glass-card:nth-child(2)', 140, 'right'],
+        ['#contact .contact-grid > .contact-card-main', 140, 'left'],
+        ['#contact .contact-grid > .contact-card-comment', 220, 'right'],
         ['#tab-projects .project-card', 130, 'up'],
         ['#tab-certificates .cert-item', 80, 'up'],
         ['#tab-achievements .cert-item', 80, 'up'],
